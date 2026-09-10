@@ -11,7 +11,7 @@ attrs==26.1.0
 beautifulsoup4==4.14.3
 certifi==2026.4.22
 charset-normalizer==3.4.7
-click==8.3.8
+click==8.1.8
 colorama==0.4.6
 deep-translator==1.11.4
 Django==6.0.7
