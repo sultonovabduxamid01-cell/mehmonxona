@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LuxStay — Mehmonxonalar</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f6f7fb;
+            color: #111827;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            width: 100%;
+            height: 75px;
+            background: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            border-bottom: 1px solid #eee;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: #111827;
+        }
+
+        .logo span {
+            color: #6366f1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #6366f1;
+        }
+
+        .nav-btn {
+            background: #6366f1;
+            color: white !important;
+            padding: 12px 20px;
+            border-radius: 12px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 390px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 60px 7%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(17, 24, 39, .9),
+                    rgba(17, 24, 39, .35)
+                ),
+                url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #e5e7eb;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            background: white;
+            padding: 10px;
+            border-radius: 16px;
+
+            display: flex;
+            max-width: 600px;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+
+            padding: 14px;
+
+            font-size: 15px;
+            color: #111827;
+        }
+
+        .search-box button {
+            border: none;
+            background: #6366f1;
+            color: white;
+
+            padding: 0 25px;
+
+            border-radius: 11px;
+
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* MAIN */
+
+        .container {
+            width: 86%;
+            max-width: 1400px;
+
+            margin: 60px auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 30px;
+        }
+
+        .section-header h2 {
+            font-size: 30px;
+            font-weight: 800;
+        }
+
+        .section-header p {
+            color: #6b7280;
+            margin-top: 7px;
+        }
+        
+
+
+.add-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #111827;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.add-button:hover {
+    background: #374151;
+    transform: translateY(-2px);
+}
+
+
+
+
+
+        .hotel-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 25px;
+        }
+
+        .hotel-card {
+            background: white;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, .06);
+
+            transition: .3s;
+
+            border: 1px solid #eee;
+        }
+
+        .hotel-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, .12);
+        }
+
+        .hotel-image {
+            height: 220px;
+
+            position: relative;
+
+            background:
+                url("https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hotel-badge {
+            position: absolute;
+
+            top: 15px;
+            left: 15px;
+
+            background: rgba(255,255,255,.95);
+
+            padding: 8px 12px;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .hotel-rating {
+            position: absolute;
+
+            right: 15px;
+            top: 15px;
+
+            background: #111827;
+            color: white;
+
+            padding: 8px 12px;
+
+            border-radius: 10px;
+
+            font-weight: 700;
+        }
+
+        .hotel-content {
+            padding: 22px;
+        }
+
+        .hotel-content h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            color: #6b7280;
+
+            font-size: 14px;
+
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #6b7280;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-bottom: 18px;
+        }
+
+        .features {
+            display: flex;
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 20px;
+        }
+
+        .feature {
+            background: #f3f4f6;
+
+            padding: 8px 11px;
+
+            border-radius: 8px;
+
+            font-size: 12px;
+
+            color: #4b5563;
+        }
+
+        .hotel-bottom {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            padding-top: 18px;
+
+            border-top: 1px solid #eee;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .price small {
+            font-size: 12px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .details-btn {
+            text-decoration: none;
+
+            background: #111827;
+
+            color: white;
+
+            padding: 11px 17px;
+
+            border-radius: 10px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+        }
+
+        .details-btn:hover {
+            background: #6366f1;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111827;
+
+            color: white;
+
+            padding: 40px 7%;
+
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+
+            flex-wrap: wrap;
+
+            gap: 20px;
+        }
+
+        footer p {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 700px) {
+
+            .nav-links a:not(.nav-btn) {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .search-box {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .search-box button {
+                padding: 14px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+    <div class="logo">
+        Lux<span>Stay</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="/">Bosh sahifa</a>
+
+        <a href="#hotels">Mehmonxonalar</a>
+
+        <a href="#about">Biz haqimizda</a>
+
+        <a href="#" class="nav-btn">
+            Bog‘lanish
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Mukammal dam olish
+            uchun joy toping.
+        </h1>
+
+        <p>
+            O‘zingizga mos eng yaxshi mehmonxonani
+            tanlang va unutilmas sayohatni boshlang.
+        </p>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                placeholder="Mehmonxona yoki manzilni qidiring..."
+            >
+
+            <button>
+                🔍 Qidirish
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOTELS -->
+
+<main class="container" id="hotels">
+
+    <div class="section-header">
+
+        <div>
+            <h2>Mashhur mehmonxonalar</h2>
+            
+            <p>
+                Siz uchun eng yaxshi variantlar
+            </p>
+        </div>
+         <a href="{% url 'mehmonxona_create' %}" class="add-button">
+        + Mehmonxona qo‘shish
+    </a>
+    </div>
+
+
+    <div class="hotel-grid">
+
+        {% for hotel in mehmonxonalar %}
+
+        <div class="hotel-card">
+
+            <div class="hotel-image">
+
+                <div class="hotel-badge">
+                    🏨 Premium
+                </div>
+
+                <div class="hotel-rating">
+                    ⭐ {{ hotel.yulduz_soni }}.0
+                </div>
+
+            </div>
+
+
+            <div class="hotel-content">
+
+                <h3>
+                    {{ hotel.nomi }}
+                </h3>
+
+                <div class="location">
+                    📍 {{ hotel.manzil }}
+                </div>
+
+                <p class="description">
+                    {{ hotel.malumot|truncatewords:18 }}
+                </p>
+
+
+                <div class="features">
+
+                    <span class="feature">
+                        🛏 {{ hotel.xona_soni }} xona
+                    </span>
+
+                    {% if hotel.wifi_bormi %}
+                        <span class="feature">
+                            📶 Wi-Fi
+                        </span>
+                    {% endif %}
+
+                    <span class="feature">
+                        ⭐ {{ hotel.yulduz_soni }} yulduz
+                    </span>
+
+                </div>
+
+
+                <div class="hotel-bottom">
+
+                    <div class="price">
+
+                        ${{ hotel.bir_kunlik_narx }}
+
+                        <small>
+                            / kun
+                        </small>
+
+                    </div>
+
+
+                    <a
+                        href="{% url 'mehmonxona_detail' hotel.id %}"
+                        class="details-btn"
+                    >
+                        Batafsil →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <p>
+            Hozircha mehmonxonalar mavjud emas.
+        </p>
+
+        {% endfor %}
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+            <div class="logo">
+                Lux<span>Stay</span>
+            </div>
+
+            <p>
+                Sizning qulay sayohatingiz biz bilan.
+            </p>
+        </div>
+
+        <p>
+            © 2026 LuxStay. Barcha huquqlar himoyalangan.
+        </p>
+
+    </div>
+
+</footer>
+
+</body>
+</html>

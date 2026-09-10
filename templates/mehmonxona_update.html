@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="uz">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<title>Mehmonxonani tahrirlash</title>
+
+<style>
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f5f7fb;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+    }
+
+    .card {
+        background: white;
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 10px 35px rgba(0,0,0,.08);
+    }
+
+    h1 {
+        color: #111827;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        padding: 13px;
+        margin: 8px 0 18px;
+
+        border: 1px solid #ddd;
+        border-radius: 10px;
+
+        box-sizing: border-box;
+        font-size: 15px;
+    }
+
+    textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    button {
+        width: 100%;
+
+        padding: 15px;
+
+        border: none;
+        border-radius: 10px;
+
+        background: #6366f1;
+        color: white;
+
+        font-size: 16px;
+        font-weight: bold;
+
+        cursor: pointer;
+    }
+
+    .back {
+        display: block;
+        margin-bottom: 20px;
+        color: #6366f1;
+        text-decoration: none;
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+<div class="container">
+
+```
+<a
+    href="{% url 'mehmonxona_detail' mehmonxona.id %}"
+    class="back"
+>
+    ← Orqaga
+</a>
+
+<div class="card">
+
+    <h1>
+        ✏️ {{ mehmonxona.nomi }} ni tahrirlash
+    </h1>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>Mehmonxona nomi</label>
+        <input
+            type="text"
+            name="nomi"
+            value="{{ mehmonxona.nomi }}"
+            required
+        >
+
+        <label>Ma'lumot</label>
+        <textarea
+            name="malumot"
+            required
+        >{{ mehmonxona.malumot }}</textarea>
+
+        <label>Yulduz soni</label>
+        <input
+            type="number"
+            name="yulduz_soni"
+            value="{{ mehmonxona.yulduz_soni }}"
+            min="1"
+            max="5"
+            required
+        >
+
+        <label>Xona soni</label>
+        <input
+            type="number"
+            name="xona_soni"
+            value="{{ mehmonxona.xona_soni }}"
+            required
+        >
+
+        <label>Bir kunlik narx</label>
+        <input
+            type="number"
+            name="bir_kunlik_narx"
+            value="{{ mehmonxona.bir_kunlik_narx }}"
+            required
+        >
+
+        <label>Wi-Fi</label>
+        <input
+            type="text"
+            name="wifi_bormi"
+            value="{{ mehmonxona.wifi_bormi }}"
+            required
+        >
+
+        <label>Email</label>
+        <input
+            type="number"
+            name="emaili"
+            value="{{ mehmonxona.emaili }}"
+            required
+        >
+
+        <label>Ochilgan sana</label>
+        <input
+            type="datetime-local"
+            name="ochilgan_sana"
+            value="{{ mehmonxona.ochilgan_sana|date:'Y-m-d\TH:i' }}"
+            required
+        >
+
+        <button type="submit">
+            Saqlash
+        </button>
+         <div class="field">
+            <label>Manzil</label>
+            <input
+                type="text"
+                name="manzil"
+                required
+            >
+        </div>
+    </form>
+
+</div>
+
+
+</div>
+
+</body>
+
+</html>
